@@ -1,0 +1,129 @@
+import fond.io.InputWindow;
+import fond.io.OutputWindow;
+
+public class MatriciDiStr {
+
+	static InputWindow in = new InputWindow();
+	static OutputWindow out = new OutputWindow();
+	
+	public static void main(String[] args) {
+		
+		String[][] m = {{"Federico", "Edoardo", "Gianni"},
+						{"Morandi", "Babele", "Nessuno"},
+						{"Topolino", "Paperino", "Maria"},
+						{"Federico", "Edoardo", "Francesca"}};
+		
+		stampaMatrice(m);
+		
+		out.writeln("Inserisci il nome da cercare: ");
+		
+		String nomeDaCercare = in.readString();
+		
+		out.writeln("Hai inserito il nome -> " + nomeDaCercare);
+		
+		restituisciElemento(m, nomeDaCercare);
+		
+		int occorrenze = restituisciOccorrenze(m, nomeDaCercare);
+		
+		out.writeln("\nIl nome " + nomeDaCercare + " compare " + occorrenze + " volte nella matrice. \n");
+		
+		String[] nomiAppoggio = restituisciConcatenazione(m);
+		
+		for (String nome : nomiAppoggio) {
+			out.writeln(nome);
+		}
+		
+		out.write("\n");
+		
+		stampaPrimoChar(m);
+		
+		out.write("\n");
+		
+		out.writeln(contaChar(m, 'a'));
+	}
+	
+	static public void stampaMatrice(String m[][]) {
+		for(int i = 0; i<m.length; i++) {
+			for(int j = 0; j<m[i].length; j++) {
+				out.write(m[i][j] + "\t\t");
+			}
+			out.writeln("\n");
+		}
+	}
+ 
+	static public void restituisciElemento(String m[][], String nomeInput) {
+		int contatore = 0;
+		
+		for(int i = 0; i<m.length; i++) {
+			for(int j = 0; j<m[i].length; j++) {
+				if (m[i][j].equalsIgnoreCase(nomeInput)) {
+					
+					out.writeln("\nIl nome inserito si trova nella cella di indice: [" + (i + 1) + "],[" + (j + 1) + "]. ");
+					
+					contatore++;			
+				}
+			}
+		}
+		
+		if (contatore == 0) {
+			out.writeln("\nIl nome inserito non è presente nella matrice. ");
+		}
+	}
+	
+	static public int restituisciOccorrenze(String m[][], String nomeInput) {
+		int contatore = 0;
+		
+		for(int i = 0; i<m.length; i++) {
+			for(int j = 0; j<m[i].length; j++) {
+				if (m[i][j].equalsIgnoreCase(nomeInput)) {
+					
+					contatore++;
+				}
+			}
+		}
+		
+		return contatore;
+	}
+	
+	static public String[] restituisciConcatenazione(String m[][]) {
+		String[] stringheConcatenate = new String[4];
+		String risultato = "";
+		
+		for(int i = 0; i<m.length; i++) {
+			for(int j = 0; j<m[i].length; j++) {
+				
+				risultato = risultato.concat(m[i][j]);
+				risultato += " ";
+			}
+			
+			stringheConcatenate[i] = risultato;
+			risultato = "";
+		}
+		
+		return stringheConcatenate;
+	}
+	
+	static public void stampaPrimoChar(String m[][]) {
+		for(int i = 0; i<m.length; i++) {
+			for(int j = 0; j<m[i].length; j++) {
+				
+				out.write(m[i][j].charAt(0));
+			}
+		}
+	}
+	
+	static public long contaChar(String m[][], char c) {
+		long contatore = 0;
+		
+		for(int i = 0; i<m.length; i++) {
+			for(int j = 0; j<m[i].length; j++) {
+				contatore += m[i][j].chars()
+	              .filter(ch -> ch == c)
+	              .count();
+			}
+		}
+		
+		return contatore;
+	}
+	
+}
