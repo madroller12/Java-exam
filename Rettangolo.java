@@ -1,32 +1,30 @@
-package progettodue;
-
 public class Rettangolo {
-
-	int base = 0;
-	int altezza = 0;
+	float base = 0, altezza = 0;
 	
-	public Rettangolo(int base, int altezza) {
-		this.base = base;
-		this.altezza = altezza;
-	}
-
-	int perimetro() {
-		/*return((base+altezza)*2);*/ //modo 1	
-		int p = ((base+altezza)*2);
-		return p;  //modo 2
-	}
-	
-	int area() {
-		return(base*altezza);
-	}
-	
-	double frazioneArea(double f) {
-		double fa = area()*f;
-		return fa;
-		}
-	
-	void cambiaDimensioni(int b, int a) {
+	public Rettangolo(float a, float b) {
+		super();
 		this.base = b;
 		this.altezza = a;
 	}
+
+	float perimetro() {
+		//return (base + altezza) * 2;
+		return (base + altezza) * 2;
+		
+	}
+	
+	float area() {
+		return base * altezza;
+	}
+	
+	float frazioneArea(float f) {
+		float fa = area() * f;
+		return fa;
+	}
+	
+	void cambioDimensioni (float b, float a) {
+		this.base = b;
+		this.altezza = a;
+	}
+	
 }
