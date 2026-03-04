@@ -1,32 +1,20 @@
-package esercizijavetta;
+package g270126;
 
 public class Persona {
-	private String nome;
-	private String cognome;
-	private int annonascita;
-	private String codicefiscale;
-	private int PINsegreto;
+	private String nome, cognome, codiceFiscale;
+	private int datanascita, PINsegreto;
 
-	
-	
-	public Persona(String nome, String cognome, int annonascita, String codicefiscale, int PINsegreto) {
+	public Persona(String nome, String cognome, String codiceFiscale, int datanascita) {
 		super();
 		this.nome = nome;
 		this.cognome = cognome;
-		this.annonascita = annonascita;
-		this.codicefiscale = codicefiscale;
-		this.PINsegreto = PINsegreto;
+		this.codiceFiscale = codiceFiscale;
+		this.datanascita = datanascita;
 	}
-	
-	
+
 	public String getNome() {
 		return nome;
 	}
-
-	public int getPINsegreto() {
-		return PINsegreto;
-	}
-
 
 	public void setNome(String nome) {
 		this.nome = nome;
@@ -40,25 +28,26 @@ public class Persona {
 		this.cognome = cognome;
 	}
 
-	public int getAnnonascita() {
-		return annonascita;
+	public String getCodiceFiscale() {
+		return codiceFiscale;
 	}
 
-	public void setAnnonascita(int annonascita) {
-		this.annonascita = annonascita;
+	public void setCodiceFiscale(String codiceFiscale) {
+		this.codiceFiscale = codiceFiscale;
 	}
 
-	public String getCodicefiscale() {
-		return codicefiscale;
+	public int getDatanascita() {
+		return datanascita;
 	}
 
-	public void setCodicefiscale(String codicefiscale) {
-		this.codicefiscale = codicefiscale;
-	}	
+	public void setDatanascita(int datanascita) {
+		this.datanascita = datanascita;
+	}
+
+	public void setPINsegreto(int pINsegreto) {
+		PINsegreto = pINsegreto;
+	}
 	
-	public void setPINsegreto(int PINsegreto) {
-		this.PINsegreto = PINsegreto;
-	}
 	
 	
 }
